@@ -3,4 +3,5 @@ Alunos:
 - Tiago Marques Espanha
 - Gianluca Bensabat Calvano
 - Pedro Borges Pinta e Silva
-- 
+- Eduardo de Miranda Siqueira
+
