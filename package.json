@@ -1,0 +1,18 @@
+{
+  "name": "-uff-projeto-software-grupo2",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start-back": "cd src/backend && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UFFPedroBorges/-UFF-Projeto-Software-Grupo2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UFFPedroBorges/-UFF-Projeto-Software-Grupo2/issues"
+  },
+  "homepage": "https://github.com/UFFPedroBorges/-UFF-Projeto-Software-Grupo2#readme"
+}
