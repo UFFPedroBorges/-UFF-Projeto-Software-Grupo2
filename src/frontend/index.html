@@ -1,0 +1,138 @@
+
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.6/dist/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+        <script src="js/main.js"></script>
+        <link rel="stylesheet" href="./style.css">
+        <link rel="icon" type="image/svg" href="img/box-solid.svg"><i class="fa-solid fa-warehouse-full"></i></link>
+        <title>Estoque</title>
+    </head>
+    <body>
+        <div id="app">
+            <div class="d-flex align-items-end">
+                <a href="./adicionarProduto.html" type="button"class="btn btn-outline-primary button-adicionar">Adicionar Produto</a>
+                <nav class="menu jsMenu">
+                    <ul class="m-auto">
+                        <li><a href="#">Produtos</a></li>
+                        <li><a href="./locais.html">Locais</a></li>
+                        <li class="m-auto"><i onclick="logout()" class="fa-solid fa-right-from-bracket"></i></li>
+                    </ul>
+                </nav>   
+            </div>         
+            <div class="card">
+                <div class="card-header">
+                Lista de Produtos
+                </div>
+                <div class="card-body">
+                    <div class="filtro d-flex gap-4 my-4">
+                        <input type="text" class="form-control input-filtro" placeholder="Nome do Produto" aria-label="Busque pelo Nome do Produto" >
+                        <button class="btn btn-outline-primary"><i class="fa-solid fa-magnifying-glass"></i>               
+                        </button>     
+                    </div>
+                    <table class="table table-striped table-bordered table-hover table-principal" id="kt_table_1">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th width="15%">Preço</th>
+                                <th width="15%">Peso</th>
+                                <th width="15%">Quantidade</th>
+                                <th width="10%">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="(item, index) in dataListProduto" :key="index">
+                                <td>
+                                    <div><span> {{ item.nome }} </span></div>
+                                </td>                               
+                                <td>
+                                    <div><span> {{ item.custo }} </span></div>
+                                </td>
+                                <td>
+                                    <div><span> {{ item.peso }}</span></div>
+                                </td>
+                                <td>
+                                    <div><span> {{ item.quantidade  }}</span></div>
+                                </td>
+                                <td>
+                                    <i class="fa-solid fa-trash text-danger" data-toggle="tooltip" data-placement="top" title="Excluir"></i>
+                                    <a href="editarProduto.html"><i class="fa-solid fa-pencil text-warning" data-toggle="tooltip" data-placement="top" title="Editar"></i></a>
+                                </td>
+                            </tr>                                
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data(){
+            return{
+                dataListProduto: [
+                {
+                    nome: 'Lápis',
+                    custo: 'R$ 4,50',
+                    peso: '0,3kg',
+                    quantidade: '13',
+                },
+                {
+                    nome: 'Bola',
+                    custo: 'R$ 35,50',
+                    peso: '2kg',
+                    quantidade: '15',
+                },
+                {
+                    nome: 'Caderno',
+                    custo: 'R$ 12,20',
+                    peso: '1kg',
+                    quantidade: '5',
+                },
+                {
+                    nome: 'Caneta',
+                    custo: 'R$ 2,50',
+                    peso: '0,6kg',
+                    quantidade: '25',
+                },
+                {
+                    nome: 'Borracha',
+                    custo: 'R$ 0,50',
+                    peso: '0,4kg',
+                    quantidade: '10',
+                },
+                {
+                    nome: 'Grafite',
+                    custo: 'R$ 2,90',
+                    peso: '0,2kg',
+                    quantidade: '42',
+                }],
+            }
+        },
+        methods: {
+        }
+    })
+</script>
+
+<style>
+.table{
+    font-size: 1.1rem;
+}
+th{
+    font-size: 1.3rem;
+}
+.card-header{
+    font-size: 1.4rem;
+}
+.input-filtro{
+    width: 300px;
+}
+</style>

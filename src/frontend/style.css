@@ -1,0 +1,48 @@
+.button-adicionar{
+    height: 40px;
+    margin-left: 100px;
+}
+
+.menu {
+    grid-column: 3 / 5;
+    margin: 2rem 0 2rem;
+    background: #fb5;
+    margin-left: auto;
+    width: 330px;
+}
+
+.menu ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    gap:20px;
+}
+
+.menu li a {
+    display: block;
+    padding: 15px 10px;
+    color: #222222;
+    text-decoration: none;
+    font-family: 'IBM Plex Mono', monospace;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: .1em;
+    font-size: 1rem;
+    border: 2px solid transparent;
+    transition: .3s;
+}
+
+.menu li a:hover {
+    border: 2px solid rgb(255, 255, 255);
+}
+nav ul{
+    list-style:none ;
+}
+.card {
+    margin: 20px 100px
+}
+html, body {
+    background-color: #FAF6ED;
+    font-family: monospace;
+    font-size: 1rem;
+}
