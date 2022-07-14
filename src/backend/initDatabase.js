@@ -2,7 +2,7 @@ import {Sequelize } from 'sequelize';
 
 
 export const initDatabase = async () => {
-    const sequelize = new Sequelize('postgres', 'admin', 'ewqewq321', {
+    const sequelize = new Sequelize('postgres', 'root', 'ewqewq321', {
         host: 'localhost',
         dialect: 'postgres'
     });
