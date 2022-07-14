@@ -1,7 +1,10 @@
-A versão final do documento se encontra em:
-  Documento/documento_final.pdf
+# Controle de Estoque
 
-Alunos: 
+## Documento
+- A versão final do documento se encontra em 
+  `Documento/documento_final.pdf`
+
+## Alunos
 - Ugo Rangel Gemesio
 - Tiago Marques Espanha
 - Gianluca Bensabat Calvano
