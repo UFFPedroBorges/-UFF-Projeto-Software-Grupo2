@@ -15,7 +15,8 @@
 
 ## Alunos
 - Ugo Rangel Gemesio
-- Tiago Marques Espanha
+- Tiago Marques Espanha - 215083114 - (Casos de uso, implementação e decisões sobre backend)
+- Bruno Xavier (Casos de uso, implementação e decisões sobre frontend)
 - Gianluca Bensabat Calvano
 - Pedro Borges Pinta e Silva
 - Eduardo de Miranda Siqueira
