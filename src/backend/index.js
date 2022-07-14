@@ -2,28 +2,31 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import { v4 as uuidv4 } from 'uuid';
 import { getFrontPath } from './helpers.js';
-import { initDatabase } from './initDatabase.js';
-const session = {
-  user: undefined,
-}
+import { createContainer } from './container.js';
+import { routes as userRoutes } from './contexts/user/interface/index.js';
+
+
+
 
 const persistenceLayer = {
   users: [],
   products: [],
 }
-const sequelize = initDatabase();
+
+const container = await createContainer();
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 const port = 3000;
 const htmlFileBasePath = getFrontPath()
+const routes = [...userRoutes]
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
 
 app.get('/', function(req, res) {
-  console.log('session.user', session.user)
-  if(session.user) {
+  console.log('session.user', container.session.user)
+  if(container.session.user) {
     res.redirect('/product/listagem');
   } else {
     res.redirect('/user/login');
@@ -58,22 +61,15 @@ app.get('/product/listagem', function(req, res) {
 
 
 // api
-
-app.post('/api/user/login', function(req, res) {
-  const { body } = req
-  const userToLogin = persistenceLayer.users.find(u => u.email === body.email)
-  if( userToLogin && userToLogin.password === body.password) {
-    session.user = userToLogin
-    res.redirect('/product/cadastro');
-    return;
-  }
-
-  res.sendStatus(400);
-});
-
-app.get('/api/user/logoff', function(req, res) {
-  session.user = undefined
-  res.redirect('/user/login');
+routes.forEach(r => {
+  app[r.verb](r.path, async (req, res) => {
+    try {
+      await r.action({...container, req, res});
+    }
+    catch(e){
+      console.log("ERROR AQUI: ", e)
+    }
+  })
 });
 
 app.post('/api/user/cadastrar', function(req, res) {

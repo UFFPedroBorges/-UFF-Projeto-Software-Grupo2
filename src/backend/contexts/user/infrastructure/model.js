@@ -10,8 +10,11 @@ export const createModel = (sequelize) => {
           type: DataTypes.STRING,
           allowNull: false
         }
+      }, {
+        tableName: "users",
+        timestamps: false
       }
       );
     
-    return v;
+    return userModel;
 }

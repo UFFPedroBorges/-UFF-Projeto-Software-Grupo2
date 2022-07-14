@@ -6,3 +6,13 @@ export const getFrontPath = () => {
 
     return `${rootPath}/frontend`
 }
+
+export function bindMethods(instance, methods) {
+    return methods.reduce(
+      (obj, method) => ({
+        ...obj,
+        [method]: (instance[method]).bind(instance),
+      }),
+      {} 
+    );
+  }

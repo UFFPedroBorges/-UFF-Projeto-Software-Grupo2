@@ -10,6 +10,9 @@ export const createModel = (sequelize) => {
           type: DataTypes.STRING,
           allowNull: false
         }
+      }, {
+        tableName: "products",
+        timestamps: false
       }
       );
     
