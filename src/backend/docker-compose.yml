@@ -1,0 +1,10 @@
+version: '3.5'
+services:
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: ewqewq321
+      POSTGRES_USER: admin
+    ports:
+      - 5432:5432

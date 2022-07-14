@@ -2,7 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import { v4 as uuidv4 } from 'uuid';
 import { getFrontPath } from './helpers.js';
-
+import { initDatabase } from './initDatabase.js';
 const session = {
   user: undefined,
 }
@@ -11,7 +11,7 @@ const persistenceLayer = {
   users: [],
   products: [],
 }
-
+const sequelize = initDatabase();
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 const port = 3000;
